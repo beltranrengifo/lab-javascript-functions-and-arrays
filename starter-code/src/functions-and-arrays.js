@@ -8,8 +8,23 @@ function maxOfTwoNumbers(num1, num2) {
 maxOfTwoNumbers(2, 1);
 // Finding Longest Word
 function findLongestWord(words) {
-  // return 'foo';
+  if (words.length === 1) {
+    return 'foo';
+  } else if (words.length === 0) {
+    return;
+  } else {
+    var longest = '';
+    words.forEach(function (word) {
+      if (word.length > longest.length) {
+        longest = word;
+      } else {
+        return;
+      }
+    });
+    return longest;
+  }
 }
+
 var words = [
   'mystery',
   'brother',
@@ -20,15 +35,70 @@ var words = [
   'crackpot'
 ];
 
+findLongestWord(words);
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers) {
+  if (numbers.length === 0) {
+    return 0;
+  } else {
+    var zeroCounter = 0;
+    var suma = 0;
+    for(i=0;i<numbers.length;i++) {
+        if (numbers[i] === 0) {
+        zeroCounter++;
+      } else if (numbers.length === 1) {
+        return numbers[0];
+      } else {
+        suma += numbers[i];
+      }
+    }
+    return suma;
+    if (zeroCounter === numbers.length) {
+      return 0;
+    }
+  }
+}
+
+sumArray(numbers);
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbers) {
+  var suma = 0;
+  if(numbers.length === 1) {
+    return numbers[0];
+  } else if (numbers.length === 0) {
+    return;
+  } else {
+      for (var i = 0; i < numbers.length; i++) {
+        suma += numbers[i];
+      } 
+    }
+  return suma/numbers.length;
+}
+averageNumbers(numbersAvg)
 
 // Array of Strings
+
+function averageWordLength(arr) {
+  var totalChar = 0;
+  if (arr.length === 1) {
+    return arr[0].length;
+  } else if (arr.length === 0) {
+    return;
+  } else {
+    for (var i = 0; i < arr.length; i++) {
+      totalChar += arr[i].length;
+    }
+    return totalChar/arr.length;
+  }
+}
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -42,7 +112,24 @@ var wordsArr = [
   'palace'
 ];
 
+averageWordLength(wordsArr);
 // Unique Arrays
+
+function uniquifyArray(arr) {
+  var notRepeated = [];
+  if (arr.length === 0) {
+    return;
+  } else {
+    for (var i = 0; i < arr.length; i++) {
+      if (!notRepeated.includes(arr[i])) {
+        notRepeated.push(arr[i]);  
+      }  
+    }
+  }
+  
+  return notRepeated;
+}
+
 var wordsUnique = [
   'crab',
   'poison',
