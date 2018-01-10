@@ -126,7 +126,6 @@ function uniquifyArray(arr) {
       }  
     }
   }
-  
   return notRepeated;
 }
 
@@ -144,6 +143,8 @@ var wordsUnique = [
   'bring'
 ];
 
+uniquifyArray(wordsUnique);
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -156,7 +157,24 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(words, findThis) {
+  if (words.length === 0) {
+    return false;
+  } else if (words.length === 1) {
+    return true;
+  } else {
+      if (!words.includes(findThis) ) {
+        return false;
+      } else {
+        return true;
+      }
+  }
+}
+
+doesWordExist(wordsFind, 'pepe');
 // Counting Repetion
+
+
 var wordsCount = [
   'machine',
   'matter',
@@ -170,8 +188,49 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
-// Bonus Quest
 
+function howManyTimes(arr, findThis) {
+  if (arr.length === 0) {
+    return false;
+  } else {
+    var repeatCounter = 0;
+    var checkArray;
+    for(i=0; i<arr.length; i++) {
+      console.log(arr[i]);
+      if(arr[i]===findThis) {
+        repeatCounter++;
+      }
+    }
+    return repeatCounter;
+  }
+}
+
+
+// Bonus Quest
+function greatestProduct(matrix) {
+  var totalItems = 0;
+  var unos = 0;
+  var doses = 0;
+  matrix.forEach(function(row){
+    row.forEach(function(number){
+      console.log(number);
+      totalItems++;
+      if (number === 1) {
+        unos ++;
+      } else if (number === 2) {
+        doses ++;
+      }
+    })
+  })
+  console.log('el total de items es: ' + totalItems);
+  if (unos === totalItems) {
+    return 1;  
+  } else if (doses === totalItems) {
+    return 16;  
+  } else {
+    return;
+  }
+}
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -194,3 +253,13 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+var matrixUnos = [
+    [1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1]
+  ];
+
+  var matrixDoses = [
+    [2,2,2,2,2,2,2,2,2,2],
+    [2,2,2,2,2,2,2,2,2,2]
+  ];
